@@ -1,30 +1,22 @@
 class LandmarksController < ApplicationController
   def index
-    
-  end
-
-  def new
-    @landmark = Landmark.new
+    @landmark = Landmark.order("RANDOM()").first   
   end
 
   def create
-    if @landmark.valid?
-      redirect_to root_path
-    else
-      render :new, status: unprocessable_entity
+    @landmark = Landmark.create(landmark_params)
+    if @landmark.invalid?
+      flash[:error] = '<strong>Could not save</strong> that is not a Jamaican landmark.' 
     end
+    redirect_to root_path
   end
 
-  def show
-    @landmark = Landmark.find(params[:id])
+  def about
   end
 
-  def update
-    @landmark.update_attributes(landmark_params)
-    if @landmark.valid?
-      redirect_to root_path
-    else
-      render :edit, status: unprocessable_entity
-    end
+  private
+
+  def landmark_params
+    params.require(:landmark).permit(:name, :location)
   end
 end
