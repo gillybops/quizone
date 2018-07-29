@@ -15,6 +15,50 @@
   </head>
 
   <body>
+    <header class="row">
+      <div class="col-3">
+
+<!-- Code for JM Flag Logo and Text overlay -->
+         <%= link_to root_path, class: 'jmflag' do %>
+           <div class="jmflag">
+             <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU9GvsTNYhlW7TxLbe9W67JgOBMLxNiOxGTmZWUrcWOIVoIH-dyg" height="75" width="125"/>
+                <div class="text-on-flag">
+                  <p>Jamaica Nice</p>
+                </div>
+           </div>
+         <% end %>
+<!-- End of JM Flag Logo and Text Code -->
+
+      </div>
+    </header>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Enter A Landmark</h4>
+          </div>
+            <%= simple_form_for Quote.new do |f| %>
+              <div class="modal-body">
+                <%= f.input :name, label: "Which landmark do you want to add?" %>
+                <br />
+                <%= f.input :location %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <%= f.submit 'Submit', class: 'btn btn-danger' %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+
     <%= yield %>
     <p>
         Jamaica is an island nation of the Greater Antilles, 240 kilometers (150 mi)</br>

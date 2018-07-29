@@ -1,0 +1,30 @@
+<div class="booyah-box col-10 offset-1">
+  <h1><%= @landmark.name %></h1>
+  <i><%= @landmark.location %></i>
+  <br/><br/>
+
+<!-- Comments Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">x</span>
+          </button>
+            <h4 class="modal-title" id="myModalLabel">Enter a Landmark</h4>
+          </div>
+          <%= simple_form_for @landmark, url: landmark_path(@landmark) do |f| %>
+            <div class="modal-body">
+              <%= f.input :name %>
+              <%= f.input :location %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit "Add a Landmark", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
