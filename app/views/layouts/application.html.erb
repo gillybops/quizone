@@ -1,7 +1,35 @@
-<div class="booyah-box col-10 offset-1">
-  <h1><%= @landmark.name %></h1>
-  <i><%= @landmark.location %></i>
-  <br/><br/>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jamaica Land of Beuty</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header class="row">
+      <div class="col-3">
+
+<!-- Code for JM Flag Logo and Text overlay -->
+        <%= link_to root_path, class: 'jmflag' do %>
+          <div class="jmflag">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQU9GvsTNYhlW7TxLbe9W67JgOBMLxNiOxGTmZWUrcWOIVoIH-dyg" height="75" width="125"/>
+              <div class="text-on-flag">
+                <p>Jamaica Nice</p>
+              </div>
+          </div>
+        <% end %>
+<!-- End of JM Flag Logo and Text Code -->
+      </div>
+
+
+      <div class="col col-sm-4 hidden-xs-down slogan">
+        <h2>Jamaica Land of Beauty</h2>
+      </div>
+      <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">
+    </header>
+
 
   <!--  Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -46,11 +74,15 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-6 footer-blurb">
-          <a href="https://www.thefirehoseproject.com">Learn how to code here</a>
+      <!-- Trigger modal -->
+        <%= link_to ' Enter Tourist Attractions Here', '#', data: {toggle: 'modal', target: '#myModal'} %>
+          &nbsp;&nbsp;
+        </div>
 <!--          <p class="text-muted">Place sticky footer content here.</p>  -->
         </div>
       </div>
     </div>
   </div>
 
-
+  </body>
+</html>
