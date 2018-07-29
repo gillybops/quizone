@@ -65,3 +65,7 @@ end
 gem 'font-awesome-rails'
 gem 'devise'
 
+gem 'loofah', '~> 2.2.1'
+gem 'nokogiri', '~> 1.8.2'
+gem 'rails-html-sanitizer', '~> 1.0.4'
+gem 'sprockets', '~> 3.7.2'
